@@ -33,7 +33,7 @@ class ClassParserFactory implements FactoryInterface
         $annotationManager = $serviceLocator->get('ZfAnnotation\AnnotationManager');
         $config = $serviceLocator->get('Config');
 
-        $parser = new ClassParser($annotationManager, $eventManager);
+        $parser = new ClassParser($config, $annotationManager, $eventManager);
         foreach ($config['zf_annotation']['event_listeners'] as $listener) {
             $parser->attach($serviceLocator->get($listener));
         }
